@@ -1,31 +1,28 @@
-# Wayfare VPN (demo) - Android project
+# Wayfare VPN (demo)
 
-This is a DEMO interface. It does not create a VPN tunnel, encrypt, or reroute traffic.
+A prototype of a VPN app's interface, packaged for Android with Capacitor.
+
+**This is a demo. It does not create a VPN tunnel, encrypt, or reroute any traffic.**
 The in-app Declaration says so. Please keep it in place.
 
-## Build an APK (Capacitor + Android Studio)
+## Get the APK from GitHub (no Android Studio needed)
 
-You need: Node.js (LTS) and Android Studio.
+1. Push this repo to GitHub (branch `main`).
+2. Open the **Actions** tab, then **Build APK**. It runs on every push, or press **Run workflow**.
+3. When it finishes, open the run and download **wayfare-vpn-demo-apk** under *Artifacts*.
+4. Unzip it, copy `app-debug.apk` to your phone and install it (allow "install unknown apps").
 
-1. Open a terminal in this folder and run:
-   npm install @capacitor/core @capacitor/android
-   npm install -D @capacitor/cli
-2. Add the Android project:
-   npx cap add android
-   npx cap sync android
-3. Open it in Android Studio:
-   npx cap open android
-4. In Android Studio: Build > Build Bundle(s) / APK(s) > Build APK(s).
-   The debug APK lands in android/app/build/outputs/apk/debug/app-debug.apk
-5. Copy that file to your phone and install it (allow "install unknown apps" when asked).
+## Build locally instead
 
-Change the app id in capacitor.config.json (com.example.wayfaredemo) before you build
-if you want your own package name.
+    npm install
+    npx cap add android
+    npx cap sync android
+    npx cap open android      # then Build > Build APK(s)
 
-## No Android Studio?
-The whole app is one file: www/index.html. Online web-to-APK converters
-(for example PWABuilder or WebIntoApp) accept that file or a zip of it.
+Change `appId` in `capacitor.config.json` (`com.example.wayfaredemo`) if you want your own package name.
 
-## Note
-Real VPN apps on Android must use the system VpnService API and a real server network.
-Google Play also has extra rules for VPN apps, so this demo is for personal use only.
+## Notes
+
+- The app is one file: `www/index.html`.
+- Real Android VPN apps must use the system `VpnService` API and a real server network.
+  Google Play has extra rules for VPN apps, so this demo is for personal use only.
